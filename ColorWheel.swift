@@ -11,6 +11,7 @@ import UIKit
 
 struct ColorWheel {
     let colorsArray = [
+        // flatness
         UIColor(red: 29/255.0, green: 209/255.0, blue: 174/255.0, alpha: 1.0), // lighter teal color
         UIColor(red: 22/255.0, green: 160/255.0, blue: 133/255.0, alpha: 1.0), // darker teal color color
         UIColor(red: 42/255.0, green: 204/255.0, blue: 114/255.0, alpha: 1.0), // lighter green color
@@ -29,6 +30,39 @@ struct ColorWheel {
         UIColor(red: 192/255.0, green: 57/255.0, blue: 43/255.0, alpha: 1.0), // darker red color
         UIColor(red: 149/255.0, green: 165/255.0, blue: 166/255.0, alpha: 1.0), // lighter grey color
         UIColor(red: 127/255.0, green: 140/255.0, blue: 141/255.0, alpha: 1.0), // daker grey color
+        
+        // others
+        UIColor(red: 219/255.0, green: 97/255.0, blue: 97/255.0, alpha: 1.0),
+        UIColor(red: 208/255.0, green: 196/255.0, blue: 248/255.0, alpha: 1.0),
+        UIColor(red: 206/255.0, green: 130/255.0, blue: 248/255.0, alpha: 1.0),
+        UIColor(red: 168/255.0, green: 125/255.0, blue: 232/255.0, alpha: 1.0),
+        UIColor(red: 133/255.0, green: 195/255.0, blue: 239/255.0, alpha: 1.0),
+        UIColor(red: 118/255.0, green: 142/255.0, blue: 113/255.0, alpha: 1.0),
+        UIColor(red: 98/255.0, green: 139/255.0, blue: 157/255.0, alpha: 1.0),
+        UIColor(red: 127/255.0, green: 59/255.0, blue: 196/255.0, alpha: 1.0),
+        UIColor(red: 167/255.0, green: 88/255.0, blue: 88/255.0, alpha: 1.0),
+        UIColor(red: 205/255.0, green: 86/255.0, blue: 135/255.0, alpha: 1.0),
+        UIColor(red: 55/255.0, green: 200/255.0, blue: 169/255.0, alpha: 1.0),
+        UIColor(red: 228/255.0, green: 208/255.0, blue: 27/255.0, alpha: 1.0),
+        UIColor(red: 18/255.0, green: 219/255.0, blue: 237/255.0, alpha: 1.0),
+        UIColor(red: 45/255.0, green: 210/255.0, blue: 163/255.0, alpha: 1.0),
+        UIColor(red: 79/255.0, green: 171/255.0, blue: 145/255.0, alpha: 1.0),
+        UIColor(red: 60/255.0, green: 195/255.0, blue: 123/255.0, alpha: 1.0),
+        UIColor(red: 69/255.0, green: 186/255.0, blue: 122/255.0, alpha: 1.0),
+        UIColor(red: 108/255.0, green: 147/255.0, blue: 147/255.0, alpha: 1.0),
+        UIColor(red: 62/255.0, green: 154/255.0, blue: 193/255.0, alpha: 1.0),
+        UIColor(red: 77/255.0, green: 179/255.0, blue: 122/255.0, alpha: 1.0),
+        UIColor(red: 173/255.0, green: 92/255.0, blue: 82/255.0, alpha: 1.0),
+        UIColor(red: 60/255.0, green: 168/255.0, blue: 195/255.0, alpha: 1.0),
+        UIColor(red: 152/255.0, green: 107/255.0, blue: 103/255.0, alpha: 1.0),
+        UIColor(red: 74/255.0, green: 181/255.0, blue: 179/255.0, alpha: 1.0),
+        UIColor(red: 253/255.0, green: 237/255.0, blue: 165/255.0, alpha: 1.0),
+        UIColor(red: 132/255.0, green: 171/255.0, blue: 205/255.0, alpha: 1.0),
+        UIColor(red: 89/255.0, green: 125/255.0, blue: 113/255.0, alpha: 1.0),
+        UIColor(red: 187/255.0, green: 173/255.0, blue: 225/255.0, alpha: 1.0),
+        UIColor(red: 130/255.0, green: 149/255.0, blue: 106/255.0, alpha: 1.0),
+        UIColor(red: 116/255.0, green: 139/255.0, blue: 137/255.0, alpha: 1.0)
+        
     ]
     
     func randomColor() -> UIColor {
