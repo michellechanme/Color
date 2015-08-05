@@ -11,23 +11,35 @@ import UIKit
 class ViewController: UIViewController {
     
     let colorWheel = ColorWheel()
-    @IBOutlet weak var colorLabel: UILabel!
+    @IBOutlet weak var rgbLabel: UILabel!
+    @IBOutlet weak var hexLabel: UILabel!
+    @IBOutlet weak var swipeLabel: UILabel!
     
     @IBAction func panGesture(sender: UIPanGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.Ended {
+            changeColor()
+            swipeLabel.hidden = true
+        }
+    }
+    
+    private func changeColor() {
         var randomColor = colorWheel.randomColor()
         let rgb = randomColor.rgb()
         let rgbString = "\(rgb.0), \(rgb.1), \(rgb.2)"
         
-        if sender.state == UIGestureRecognizerState.Ended {
-            view.backgroundColor = randomColor
-            
-            let bgColor = self.view.backgroundColor?.rgb()
-            let RGBtoString = String(stringInterpolationSegment: bgColor)
-            let filterRGB = sanitizeRGB(RGBtoString)
-            println(filterRGB)
-            
-            colorLabel.text = "RGB: \(filterRGB)"
-        }
+        view.backgroundColor = randomColor
+        
+        let bgColor = self.view.backgroundColor?.rgb()
+        
+        let RGBtoString = String(stringInterpolationSegment: bgColor)
+        let filterRGB = sanitizeRGB(RGBtoString)
+        
+        let hexString = self.view.backgroundColor?.toHexString()
+        let filterHex = sanitizeHEX(hexString!)
+        
+        rgbLabel.text = "RGB: \(filterRGB)"
+        hexLabel.text = "Hex: \(filterHex)"
+        
     }
     
     func sanitizeRGB(unfilteredNum: String) -> String {
@@ -41,14 +53,27 @@ class ViewController: UIViewController {
         return filteredNum
     }
     
-    //    func RGBtoHex() {
-    //        let hexValue = String(format:"%02X", Int(iRed)) + String(format:"%02X", Int(iGreen)) + String(format:"%02X", Int(iBlue))
-    //    }
+    func sanitizeHEX(unfilteredNum: String) -> String {
+        let acceptedChars = NSCharacterSet(charactersInString: "#1234567890abcdefghijklmnopqrstuvwxyz")
+        var filteredHex = String()
+        for char in unfilteredNum.utf16 {
+            if acceptedChars.characterIsMember(char) {
+                filteredHex.append(UnicodeScalar(char))
+            }
+        }
+        return filteredHex
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+        changeColor()
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -80,7 +105,7 @@ extension UIColor {
 }
 
 extension UIColor {
-
+    
     func toHexString() -> String {
         var r:CGFloat = 0
         var g:CGFloat = 0
@@ -92,8 +117,20 @@ extension UIColor {
         let rgb:Int = (Int)(r*255)<<16 | (Int)(g*255)<<8 | (Int)(b*255)<<0
         
         var hex = NSString(format:"#%06x", rgb) as String
-        println()
         
         return NSString(format:"#%06x", rgb) as String
+    }
+}
+
+extension UIView {
+    func fadeIn(duration: NSTimeInterval = 1.0, delay: NSTimeInterval = 0.0, completion: ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
+        UIView.animateWithDuration(duration, delay: delay, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+            self.alpha = 1.0
+            }, completion: completion)  }
+    
+    func fadeOut(duration: NSTimeInterval = 1.0, delay: NSTimeInterval = 0.0, completion: (Bool) -> Void = {(finished: Bool) -> Void in}) {
+        UIView.animateWithDuration(duration, delay: delay, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+            self.alpha = 0.0
+            }, completion: completion)
     }
 }

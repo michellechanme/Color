@@ -2,12 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Color" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="ColorHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -16,13 +17,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RGB:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fV5-OP-pxw">
-                                <rect key="frame" x="27" y="51" width="547" height="81"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe for pretty colors!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fV5-OP-pxw" userLabel="RGB">
+                                <rect key="frame" x="27" y="53" width="547" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="547" id="1AA-PU-jbS"/>
-                                    <constraint firstAttribute="height" constant="81" id="c5L-fS-xci"/>
+                                    <constraint firstAttribute="height" constant="50" id="XwU-cX-aOw"/>
+                                    <constraint firstAttribute="width" constant="547" id="hIz-ZM-7pf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="27"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wcl-5b-Yya" userLabel="Hex">
+                                <rect key="frame" x="27" y="96" width="547" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="547" id="10C-t1-3xB"/>
+                                    <constraint firstAttribute="height" constant="50" id="5Ti-gc-2IW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="27"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe for pretty colors" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6Q-d2-mbr">
+                                <rect key="frame" x="27" y="467" width="547" height="105"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="105" id="RoW-z1-cFF"/>
+                                    <constraint firstAttribute="width" constant="547" id="wkh-Md-hdZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -30,15 +51,24 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="fV5-OP-pxw" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="31" id="Nsr-Ql-I45"/>
-                            <constraint firstAttribute="centerX" secondItem="fV5-OP-pxw" secondAttribute="centerX" id="bWy-9J-von"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="f6Q-d2-mbr" secondAttribute="bottom" constant="28" id="6n1-fK-d0L"/>
+                            <constraint firstItem="Wcl-5b-Yya" firstAttribute="top" secondItem="fV5-OP-pxw" secondAttribute="bottom" constant="-7" id="7wG-9S-sFx"/>
+                            <constraint firstAttribute="centerX" secondItem="f6Q-d2-mbr" secondAttribute="centerX" id="Ow9-Ap-JtP"/>
+                            <constraint firstItem="fV5-OP-pxw" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="33" id="Ryt-Hx-PAC"/>
+                            <constraint firstAttribute="centerX" secondItem="fV5-OP-pxw" secondAttribute="centerX" id="aB8-rM-G39"/>
+                            <constraint firstItem="Wcl-5b-Yya" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="11" id="f0F-FW-ibn"/>
+                            <constraint firstAttribute="centerX" secondItem="Wcl-5b-Yya" secondAttribute="centerX" id="hcx-1B-cey"/>
+                            <constraint firstItem="f6Q-d2-mbr" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="11" id="oUh-MW-39Y"/>
+                            <constraint firstItem="fV5-OP-pxw" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="11" id="toV-s5-lyB"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="UMq-u6-pqZ" appends="YES" id="XoG-vG-Zlp"/>
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="colorLabel" destination="fV5-OP-pxw" id="qi2-vd-4Q3"/>
+                        <outlet property="hexLabel" destination="Wcl-5b-Yya" id="PmF-EY-mkg"/>
+                        <outlet property="rgbLabel" destination="fV5-OP-pxw" id="1F4-qi-eKU"/>
+                        <outlet property="swipeLabel" destination="f6Q-d2-mbr" id="bU4-3V-7po"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
